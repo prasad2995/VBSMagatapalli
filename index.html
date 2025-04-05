@@ -5,131 +5,168 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VBS Magatapalli</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #00aeff;
-      color: #2e86c1;
-    }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f8f9fc, #e0f7fa);
+    color: #333;
+  }
 
-    header {
-      background-color: #e9a440;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+  header {
+    background: linear-gradient(135deg, #ffb347, #ffcc33);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 
-    header img {
-      max-width: 120px;
-      height: auto;
-    }
+  header img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
 
-    .theme {
-      background: #00eeff;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.2em;
-    }
+  .theme {
+    background: #e94085;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
 
-    .content {
-      padding: 30px;
-    }
+  .content {
+    padding: 30px;
+  }
 
-    .schedule {
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-top: 20px;
-    }
+  .schedule {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
 
-    h2 {
-      color: #004080;
-	  font-size: 20px
-    }
+  h2 {
+    color: #333366;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: center;
-      margin-bottom: 30px;
-    }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 30px;
+  }
 
-    th, td {
-      border: 1px solid #aaa;
-      padding: 10px;
-    }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
 
-    thead {
-      background-color: #fbeec1;
-    }
+  thead {
+    background-color: #fff3cd;
+  }
 
-    .morning-title, .afternoon-title {
-      color: #004080;
-      font-size: 1.1em;
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
-	
-	.menu-container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
+  .morning-title, .afternoon-title {
+    color: #222;
+    font-size: 1.1em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
 
-.menu-container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-}
-.hamburger {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 30px;
-  cursor: pointer;
-  background-color: #e9a440;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  z-index: 2000;
-}
+  .hamburger {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: #e9a440;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    z-index: 2000;
+    transition: background-color 0.3s ease;
+  }
 
-.hamburger.active {
-  background-color: #e94085;
-}
+  .hamburger.active {
+    background-color: #e94085;
+  }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 50%;
-  background: #e94085;
-  color: black;
-  display: none;
-  flex-direction: column;
-  align-items: left;
-  padding-top: 80px;
-  z-index: 1500;
-}
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    background: #e94085;
+    color: white;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 80px;
+    z-index: 1500;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  }
 
-.overlay-content {
-  text-align: left;
-  padding-left: 20px;
-  font-size: 15px;
-}
+  .overlay-content {
+    padding-left: 20px;
+    font-size: 16px;
+  }
 
-.overlay-content a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  margin: 15px 0;
-  font-size: 1.5em;
-}
+  .overlay-content a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 15px 0;
+    font-size: 1.4em;
+    transition: color 0.2s ease;
+  }
 
-  </style>
+  .overlay-content a:hover {
+    color: #ffcdd2;
+  }
+
+  a {
+    color: #e94085;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.button-link {
+    display: inline-block;
+    background-color: #e94085;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  a.button-link:hover {
+    background-color: #d63072;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li a {
+    color: #333366;
+  }
+
+  li a:hover {
+    color: #e94085;
+  }
+</style>
+
 </head>
 <body>
 
@@ -144,8 +181,9 @@
 <!-- Full-width Overlay -->
 <div id="menuOverlay" class="overlay">
   <div class="overlay-content">
-    <a href="TeachersContent.html">Teachers Page</a>
-	<a href="Schedule.html">VBS Schedule</a>
+    <a href="index.html">🏠 Home</a>
+    <a href="TeachersContent.html">🎓 Teachers</a>
+	<a href="Schedule.html">📅 Schedule</a>
   </div>
 </div>
 
@@ -169,23 +207,18 @@
 </div>
 
   
-  <p>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGN_hdB93CSHR1IN5wUhLjnNVViKrZkiCat4b7mFGmKS78ZQ/viewform?usp=header"
-     target="_blank"
-     style="display: inline-block; background-color: #004080; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px;">
-    📋 Register Now
-  </a>
-</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGN_hdB93CSHR1IN5wUhLjnNVViKrZkiCat4b7mFGmKS78ZQ/viewform?usp=header" target="_blank" style="display: inline-block; background-color: #004080; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px;">
+  📋 Register Now
+</a>
     </div>
   </div>
 <div class="content">
   <div class="schedule" style="margin-top: 40px;">
     <h2>Contact Us</h2>
-    <p><strong>Phone Numbers:</strong></p>
     <ul style="list-style: none; padding-left: 0; line-height: 2;">
-      <li>📞 <a href="tel:+919949307671" style="color: #004080; text-decoration: none;">+91 9949307671</a></li>
-      <li>📞 <a href="tel:+919000912358" style="color: #004080; text-decoration: none;">+91 9000912358</a></li>
-      <li>📞 <a href="tel:+919989983936" style="color: #004080; text-decoration: none;">+91 9989983936</a></li>
+      <li>📞 <a href="tel:+919949307671" style="color: #004080; text-decoration: none;">+91 9949307671 - Prasanna </a></li>
+      <li>📞 <a href="tel:+919000912358" style="color: #004080; text-decoration: none;">+91 9000912358 - Prasad </a></li>
+      <li>📞 <a href="tel:+919989983936" style="color: #004080; text-decoration: none;">+91 9989983936 - Satyam </a></li>
     </ul>
   </div>
 </div>

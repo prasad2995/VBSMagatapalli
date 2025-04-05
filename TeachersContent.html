@@ -18,10 +18,11 @@
       color: white;
       padding: 20px;
       text-align: center;
+      position: relative;
     }
 
     header img {
-      max-width: 120px;
+      max-width: 100px;
       height: auto;
     }
 
@@ -45,14 +46,74 @@
     thead {
       background-color: #dff0ff;
     }
+
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      background-color: #004080;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      z-index: 2000;
+      transition: background-color 0.3s ease;
+    }
+
+    .hamburger.active {
+      background-color: #e94085;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: #e94085;
+      color: white;
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 80px;
+      z-index: 1500;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .overlay-content {
+      padding-left: 20px;
+    }
+
+    .overlay-content a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin: 15px 0;
+      font-size: 1.4em;
+    }
+
+    .overlay-content a:hover {
+      color: #ffcdd2;
+    }
   </style>
 </head>
 <body>
 
   <header>
+    <div class="hamburger" onclick="toggleOverlay()">☰</div>
     <img src="ThemeLogo.jpg" alt="VBS Logo" />
     <h1>VBS Magatapalli</h1>
   </header>
+
+  <!-- Menu Overlay -->
+  <div id="menuOverlay" class="overlay">
+    <div class="overlay-content">
+      <a href="index.html">🏠 Home</a>
+      <a href="TeachersContent.html">👩‍🏫 Teachers</a>	  
+      <a href="Schedule.html">📅 Schedule</a>
+    </div>
+  </div>
 
   <div class="content">
     <h2>వయస్సు కేటగిరీలు</h2>
@@ -73,6 +134,46 @@
       </tbody>
     </table>
   </div>
+
+  <script>
+    function toggleOverlay() {
+      const overlay = document.getElementById('menuOverlay');
+      const hamburger = document.querySelector('.hamburger');
+      const isOpen = overlay.style.display === 'flex';
+
+      overlay.style.display = isOpen ? 'none' : 'flex';
+      hamburger.classList.toggle('active', !isOpen);
+    }
+
+    document.addEventListener('click', function(event) {
+      const overlay = document.getElementById('menuOverlay');
+      const hamburger = document.querySelector('.hamburger');
+      if (
+        overlay.style.display === 'flex' &&
+        !overlay.contains(event.target) &&
+        !hamburger.contains(event.target)
+      ) {
+        overlay.style.display = 'none';
+        hamburger.classList.remove('active');
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      const overlay = document.getElementById('menuOverlay');
+      const hamburger = document.querySelector('.hamburger');
+      if (overlay.style.display === 'flex') {
+        overlay.style.display = 'none';
+        hamburger.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        document.getElementById('menuOverlay').style.display = 'none';
+        document.querySelector('.hamburger').classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 </html>
