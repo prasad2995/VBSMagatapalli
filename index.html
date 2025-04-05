@@ -90,18 +90,22 @@
   left: 20px;
   font-size: 30px;
   cursor: pointer;
-  background-color: #004080;
+  background-color: #e9a440;
   color: white;
   padding: 10px 15px;
   border-radius: 4px;
   z-index: 2000;
 }
 
+.hamburger.active {
+  background-color: #e94085;
+}
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 25%;
   background: #e94085;
   color: black;
   display: none;
@@ -112,8 +116,9 @@
 }
 
 .overlay-content {
-  text-align: center;
-  font-size: 1.2em;
+  text-align: left;
+  padding-left: 40px;
+  font-size: 15px;
 }
 
 .overlay-content a {
@@ -190,10 +195,20 @@
 </div>
 
 <script>
-  function toggleOverlay() {
+/*  function toggleOverlay() {
     const overlay = document.getElementById('menuOverlay');
     overlay.style.display = (overlay.style.display === 'flex') ? 'none' : 'flex';
-  }
+  } */
+  
+  function toggleOverlay() {
+  const overlay = document.getElementById('menuOverlay');
+  const hamburger = document.querySelector('.hamburger');
+  const isOpen = overlay.style.display === 'flex';
+
+  overlay.style.display = isOpen ? 'none' : 'flex';
+  hamburger.classList.toggle('active', !isOpen);
+}
+
 
   // Optional: Close overlay when clicking outside or pressing ESC
   document.addEventListener('keydown', function(event) {
