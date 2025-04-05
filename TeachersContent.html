@@ -30,12 +30,19 @@
       padding: 30px;
     }
 
+    h2 {
+      color: #004080;
+      text-align: center;
+      margin-top: 40px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
       text-align: center;
       background: #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
     }
 
     th, td {
@@ -45,6 +52,14 @@
 
     thead {
       background-color: #dff0ff;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #fdf3dc;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9fbff;
     }
 
     .hamburger {
@@ -96,84 +111,104 @@
     .overlay-content a:hover {
       color: #ffcdd2;
     }
+
+    #protectedContent {
+      display: none;
+    }
   </style>
 </head>
 <body>
 
+<script>
+  const passcode = "vbs2025";
+  const userInput = prompt("Please enter the passcode to access this page:");
+  if (userInput === passcode) {
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("protectedContent").style.display = "block";
+    });
+  } else {
+    alert("Incorrect passcode. Redirecting to home.");
+    window.location.href = "index.html"; // or use "about:blank" to just blank the page
+  }
+</script>
+
+<div id="protectedContent">
   <header>
     <div class="hamburger" onclick="toggleOverlay()">☰</div>
     <img src="ThemeLogo.jpg" alt="VBS Logo" />
-    <h1>VBS Magatapalli</h1>
+    <h1>Teachers</h1>
   </header>
 
   <!-- Menu Overlay -->
   <div id="menuOverlay" class="overlay">
     <div class="overlay-content">
       <a href="index.html">🏠 Home</a>
-      <a href="TeachersContent.html">👩‍🏫 Teachers</a>	  
+      <a href="TeachersContent.html">🎓 Teachers</a>	  
       <a href="Schedule.html">📅 Schedule</a>
     </div>
   </div>
 
-  <div class="content">
-    <h2>వయస్సు కేటగిరీలు</h2>
+    <h2>గురువులు మరియు తరగతులు</h2>
     <table>
       <thead>
         <tr>
-          <th>కేటగిరి</th>
-          <th>వయస్సు</th>
+          <th>గురువులు</th>
+          <th>స్థాయి</th>
+          <th>వయస్సు గుంపు</th>
+          <th>తరగతులు</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>బిగినర్</td><td>5 సంవత్సరాలు</td></tr>
-        <tr><td>ప్రేమరి</td><td>6 - 8 సంవత్సరాలు</td></tr>
-        <tr><td>జూనియర్</td><td>9 - 11 సంవత్సరాలు</td></tr>
-        <tr><td>ఇంటర్ మీడియట్</td><td>12 - 14 సంవత్సరాలు</td></tr>
-        <tr><td>సీనియర్</td><td>15 - 17 సంవత్సరాలు</td></tr>
-        <tr><td>యంగ్ అడల్ట్</td><td>18 సంవత్సరాలు</td></tr>
+        <tr><td>Sony</td><td>Beginners</td><td>5 సంవత్సరాల కంటే తక్కువ</td><td>Nursery, LKG, UKG</td></tr>
+        <tr><td>Rajesh</td><td>Intermediate</td><td>12 - 14 సంవత్సరాలు</td><td>6 - 9 తరగతులు</td></tr>
+        <tr><td>Aruna మరియు Priscilla</td><td>Junior</td><td>9 - 11 సంవత్సరాలు</td><td>4 - 6 తరగతులు</td></tr>
+        <tr><td>Lavanya మరియు Lydia</td><td>Primary</td><td>6 - 8 సంవత్సరాలు</td><td>1 - 3 తరగతులు</td></tr>
+        <tr><td>Latha Akka</td><td>Senior</td><td>15 - 17 సంవత్సరాలు</td><td>10వ తరగతి మరియు ఇంటర్</td></tr>
+        <tr><td>Kiran Annaya మరియు Karun</td><td>Young Adult</td><td>18 సంవత్సరాలు మరియు ఎక్కువ</td><td>బిఎ, డిగ్రీ మరియు తదితర</td></tr>
       </tbody>
     </table>
   </div>
+</div>
 
-  <script>
-    function toggleOverlay() {
-      const overlay = document.getElementById('menuOverlay');
-      const hamburger = document.querySelector('.hamburger');
-      const isOpen = overlay.style.display === 'flex';
+<script>
+  function toggleOverlay() {
+    const overlay = document.getElementById('menuOverlay');
+    const hamburger = document.querySelector('.hamburger');
+    const isOpen = overlay.style.display === 'flex';
 
-      overlay.style.display = isOpen ? 'none' : 'flex';
-      hamburger.classList.toggle('active', !isOpen);
+    overlay.style.display = isOpen ? 'none' : 'flex';
+    hamburger.classList.toggle('active', !isOpen);
+  }
+
+  document.addEventListener('click', function(event) {
+    const overlay = document.getElementById('menuOverlay');
+    const hamburger = document.querySelector('.hamburger');
+    if (
+      overlay.style.display === 'flex' &&
+      !overlay.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+      overlay.style.display = 'none';
+      hamburger.classList.remove('active');
     }
+  });
 
-    document.addEventListener('click', function(event) {
-      const overlay = document.getElementById('menuOverlay');
-      const hamburger = document.querySelector('.hamburger');
-      if (
-        overlay.style.display === 'flex' &&
-        !overlay.contains(event.target) &&
-        !hamburger.contains(event.target)
-      ) {
-        overlay.style.display = 'none';
-        hamburger.classList.remove('active');
-      }
-    });
+  window.addEventListener('scroll', function () {
+    const overlay = document.getElementById('menuOverlay');
+    const hamburger = document.querySelector('.hamburger');
+    if (overlay.style.display === 'flex') {
+      overlay.style.display = 'none';
+      hamburger.classList.remove('active');
+    }
+  });
 
-    window.addEventListener('scroll', function () {
-      const overlay = document.getElementById('menuOverlay');
-      const hamburger = document.querySelector('.hamburger');
-      if (overlay.style.display === 'flex') {
-        overlay.style.display = 'none';
-        hamburger.classList.remove('active');
-      }
-    });
-
-    document.addEventListener('keydown', function(event) {
-      if (event.key === "Escape") {
-        document.getElementById('menuOverlay').style.display = 'none';
-        document.querySelector('.hamburger').classList.remove('active');
-      }
-    });
-  </script>
+  document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+      document.getElementById('menuOverlay').style.display = 'none';
+      document.querySelector('.hamburger').classList.remove('active');
+    }
+  });
+</script>
 
 </body>
 </html>
