@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="te">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,84 +46,93 @@
 
     h2 {
       color: #004080;
+	  font-size: 20px
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      border: 1px solid #aaa;
+      padding: 10px;
+    }
+
+    thead {
+      background-color: #fbeec1;
+    }
+
+    .morning-title, .afternoon-title {
+      color: #004080;
+      font-size: 1.1em;
+      margin-top: 30px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Convert the logo PDF to PNG/JPG and update the src below -->
+    <!-- Replace this image with actual logo image name -->
     <img src="ThemeLogo.jpg" alt="VBS Logo" />
     <h1>VBS Magatapalli</h1>
   </header>
 
   <div class="theme">
-    <strong>Theme:</strong> HONOURABLE VESSEL [VESSEL (ఘనత నిమితమైన పాత్ర)]
+    <strong>Theme:</strong> HONOURABLE VESSEL (ఘనత నిమితమైన పాత్ర)
   </div>
 
   <div class="content">
     <div class="schedule">
-      <h2>Timings</h2>
-      <p><strong>Date:</strong> April - 25,26,27</p>
-      <p><strong>Time:</strong> 9:00 AM </p>
+      <h2>తేదీలు: ఏప్రిల్ - 25, 26, 27</h2>
+	  <h2>సమయం:  9:00 AM to 4:30 PM </h2>
+<h2>స్థలం: L E F చర్చి, మగటపల్లి</h2>
+<p>
+  <a href="https://maps.app.goo.gl/6hoQ7uWWnATLbof66" target="_blank" style="color: #004080; font-weight: bold; text-decoration: none;">
+    ➤ Click here for directions on Google Maps
+  </a>
+</p>
+      <div class="morning-title">ఉదయం వేళలు:</div>
+      <table>
+        <thead>
+          <tr>
+            <th>సమయం</th>
+            <th>ప్రతి దిన ఏర్పాటు</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>9:00 - 9:15</td><td>ఉపాధ్యాయుల ప్రార్ధన కూడిక</td></tr>
+          <tr><td>9:15 - 9:20</td><td>ప్రారంభ ప్రార్ధన</td></tr>
+          <tr><td>9:20 - 09:50</td><td>పాటల సమయం</td></tr>
+		  <tr><td>9:50 - 10:00</td><td>తరగతి విభజన</td></tr>
+          <tr><td>10:00 - 11:00</td><td>మొదటి పాఠం, చేతిపని పుస్తకం</td></tr>
+          <tr><td>11:00 - 11:15</td><td>విరామం</td></tr>
+          <tr><td>11:15 - 12:15</td><td>రెండో పాఠం, చేతిపని పుస్తకం</td></tr>
+          <tr><td>12:15 - 12:30</td><td>పాటల సమయం</td></tr>
+          <tr><td>12:30 - 01:30</td><td>భోజన సమయం</td></tr>
+        </tbody>
+      </table>
 
-      <h2>Teacher Schedules</h2>
-<table border="1" style="width:100%; border-collapse: collapse; text-align: center;">
-  <thead style="background-color:#cce6ff;">
-    <tr>
-      <th>ఉదయం</th>
-      <th>ప్రతి దిన ఏర్పాటు</th>
-      <th>మధ్యాన్నం</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>8:30 - 8:55</td>
-      <td>ఉపాధ్యాయుల ప్రార్ధన సహవాసం</td>
-      <td>★ ★</td>
-    </tr>
-    <tr>
-      <td>8:55 - 9:00</td>
-      <td>వరుసల్లో నిలబడటం</td>
-      <td>2:00 - 2:05</td>
-    </tr>
-    <tr>
-      <td>9:00 - 9:30</td>
-      <td>పాటల సమయం</td>
-      <td>2:05 - 2:30</td>
-    </tr>
-    <tr>
-      <td>9:30 - 10:30</td>
-      <td>మొదటి పాఠం, చేతిపని పుస్తకం</td>
-      <td>2:30 - 3:30</td>
-    </tr>
-    <tr>
-      <td>10:30 - 10:40</td>
-      <td>విరామం</td>
-      <td>2:30 - 3:45</td>
-    </tr>
-    <tr>
-      <td>10:40 - 11:20</td>
-      <td>రెండో పాఠం, చేతిపని పుస్తకం</td>
-      <td>3:45 - 4:45</td>
-    </tr>
-    <tr>
-      <td>11:20 - 12:00</td>
-      <td>ద్యాన సమావేశాలు</td>
-      <td>★ ★</td>
-    </tr>
-    <tr>
-      <td>12:00 - 12:10</td>
-      <td>సెలవు తీసుకోవటం</td>
-      <td>4:25 - 4:30</td>
-    </tr>
-    <tr>
-      <td>12:10 - 12:30</td>
-      <td>ఉపాధ్యాయుల దినపు అనుభవాన్ని పంచుకోవటం</td>
-      <td>4:30 - 5:00</td>
-    </tr>
-  </tbody>
-</table>
+      <div class="afternoon-title">మధ్యాహ్నం వేళలు:</div>
+      <table>
+        <thead>
+          <tr>
+            <th>సమయం</th>
+            <th>కార్యక్రమం</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1:30 - 1:45</td><td>పాటల సమయం</td></tr>
+          <tr><td>1:45 - 2:45</td><td>మొదటి పాఠం, చేతిపని పుస్తకం</td></tr>
+          <tr><td>2:45 - 3:00</td><td>విరామం</td></tr>
+          <tr><td>3:00 - 4:00</td><td>రెండో పాఠం, చేతిపని పుస్తకం</td></tr>
+          <tr><td>4:00 - 4:15</td><td>పాటల సమయం</td></tr>
+          <tr><td>4:15 - 4:30</td><td>ముగింపు ప్రార్ధన</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
