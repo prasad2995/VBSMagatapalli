@@ -101,7 +101,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 30%;
+  width: 50%;
   background: #e94085;
   color: black;
   display: none;
@@ -144,6 +144,7 @@
 <div id="menuOverlay" class="overlay">
   <div class="overlay-content">
     <a href="TeachersContent.html">Teachers Page</a>
+	<a href="Schedule.html">VBS Schedule</a>
   </div>
 </div>
 
@@ -174,47 +175,6 @@
     📋 Register Now
   </a>
 </p>
-
-  
-</p>
-      <div class="morning-title">ఉదయం వేళలు:</div>
-      <table>
-        <thead>
-          <tr>
-            <th>సమయం</th>
-            <th>కార్యక్రమం</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>9:00 - 9:15</td><td>ఉపాధ్యాయుల ప్రార్ధన కూడిక</td></tr>
-          <tr><td>9:15 - 9:20</td><td>ప్రారంభ ప్రార్ధన</td></tr>
-          <tr><td>9:20 - 09:50</td><td>పాటల సమయం</td></tr>
-		  <tr><td>9:50 - 10:00</td><td>తరగతి విభజన</td></tr>
-          <tr><td>10:00 - 11:00</td><td>మొదటి పాఠం, చేతిపని పుస్తకం</td></tr>
-          <tr><td>11:00 - 11:15</td><td>విరామం</td></tr>
-          <tr><td>11:15 - 12:15</td><td>రెండో పాఠం, చేతిపని పుస్తకం</td></tr>
-          <tr><td>12:15 - 12:30</td><td>పాటల సమయం</td></tr>
-          <tr><td>12:30 - 01:30</td><td>భోజన సమయం</td></tr>
-        </tbody>
-      </table>
-
-      <div class="afternoon-title">మధ్యాహ్నం వేళలు:</div>
-      <table>
-        <thead>
-          <tr>
-            <th>సమయం</th>
-            <th>కార్యక్రమం</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1:30 - 1:45</td><td>పాటల సమయం</td></tr>
-          <tr><td>1:45 - 2:45</td><td>మొదటి పాఠం, చేతిపని పుస్తకం</td></tr>
-          <tr><td>2:45 - 3:00</td><td>విరామం</td></tr>
-          <tr><td>3:00 - 4:00</td><td>రెండో పాఠం, చేతిపని పుస్తకం</td></tr>
-          <tr><td>4:00 - 4:15</td><td>పాటల సమయం</td></tr>
-          <tr><td>4:15 - 4:30</td><td>ముగింపు ప్రార్ధన</td></tr>
-        </tbody>
-      </table>
     </div>
   </div>
 <div class="content">
@@ -253,6 +213,14 @@
       overlay.style.display = 'none';
     }
   });
+  
+  // Hide overlay on scroll
+window.addEventListener('scroll', function () {
+  const overlay = document.getElementById('menuOverlay');
+  if (overlay.style.display === 'flex') {
+    overlay.style.display = 'none';
+  }
+});
 </script>
 
 </script>
