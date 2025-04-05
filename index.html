@@ -71,15 +71,66 @@
       margin-top: 30px;
       margin-bottom: 10px;
     }
+	
+	.menu-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.menu-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  background-color: #004080;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+#dropdown-menu {
+  margin-top: 8px;
+  background-color: #004080;
+  border-radius: 4px;
+  display: none;
+  flex-direction: column;
+  min-width: 160px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+#dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 12px;
+  display: block;
+}
+
+#dropdown-menu a:hover {
+  background-color: #003060;
+  border-radius: 4px;
+}
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Replace this image with actual logo image name -->
     <img src="ThemeLogo.jpg" alt="VBS Logo" />
     <h1>VBS Magatapalli</h1>
   </header>
+<!-- Hamburger Menu -->
+<div class="menu-container">
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div id="dropdown-menu" class="dropdown-hidden">
+    <a href="TeachersContent.html">Teachers Page</a>
+  </div>
+</div>
+
 
   <div class="theme">
     <strong>Theme:</strong> HONOURABLE VESSEL (ఘనత నిమితమైన పాత్ర)
@@ -106,6 +157,7 @@
     📋 Register Now
   </a>
 </p>
+
   
 </p>
       <div class="morning-title">ఉదయం వేళలు:</div>
@@ -113,7 +165,7 @@
         <thead>
           <tr>
             <th>సమయం</th>
-            <th>ప్రతి దిన ఏర్పాటు</th>
+            <th>కార్యక్రమం</th>
           </tr>
         </thead>
         <tbody>
@@ -159,6 +211,23 @@
     </ul>
   </div>
 </div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('dropdown-menu');
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  // Optional: Click outside to close
+  document.addEventListener('click', function(event) {
+    const menu = document.getElementById('dropdown-menu');
+    const hamburger = document.querySelector('.hamburger');
+    if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+      menu.style.display = 'none';
+    }
+  });
+</script>
+
 
 
 </body>
