@@ -9,12 +9,12 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
-      color: #333;
+      background: #00aeff;
+      color: #2e86c1;
     }
 
     header {
-      background-color: #004080;
+      background-color: #e9a440;
       color: white;
       padding: 20px;
       text-align: center;
@@ -26,7 +26,7 @@
     }
 
     .theme {
-      background: #dff0ff;
+      background: #00eeff;
       padding: 20px;
       text-align: center;
       font-size: 1.2em;
@@ -84,37 +84,50 @@
   left: 20px;
   z-index: 1000;
 }
-
 .hamburger {
-  font-size: 26px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
   cursor: pointer;
   background-color: #004080;
   color: white;
-  padding: 8px 12px;
+  padding: 10px 15px;
   border-radius: 4px;
+  z-index: 2000;
 }
 
-#dropdown-menu {
-  margin-top: 8px;
-  background-color: #004080;
-  border-radius: 4px;
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
+  background: #e94085;
+  color: black;
   display: none;
   flex-direction: column;
-  min-width: 160px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  align-items: left;
+  padding-top: 80px;
+  z-index: 1500;
 }
 
-#dropdown-menu a {
+.overlay-content {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.overlay-content a {
   color: white;
   text-decoration: none;
-  padding: 10px 12px;
   display: block;
+  margin: 15px 0;
+  font-size: 1.5em;
 }
 
-#dropdown-menu a:hover {
-  background-color: #003060;
-  border-radius: 4px;
+.overlay-content a:hover {
+  text-decoration: underline;
 }
+
   </style>
 </head>
 <body>
@@ -123,13 +136,17 @@
     <img src="ThemeLogo.jpg" alt="VBS Logo" />
     <h1>VBS Magatapalli</h1>
   </header>
+
 <!-- Hamburger Menu -->
-<div class="menu-container">
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-  <div id="dropdown-menu" class="dropdown-hidden">
+<div class="hamburger" onclick="toggleOverlay()">☰</div>
+
+<!-- Full-width Overlay -->
+<div id="menuOverlay" class="overlay">
+  <div class="overlay-content">
     <a href="TeachersContent.html">Teachers Page</a>
   </div>
 </div>
+
 
 
   <div class="theme">
@@ -213,19 +230,31 @@
 </div>
 
 <script>
-  function toggleMenu() {
-    const menu = document.getElementById('dropdown-menu');
-    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+  function toggleOverlay() {
+    const overlay = document.getElementById('menuOverlay');
+    overlay.style.display = (overlay.style.display === 'flex') ? 'none' : 'flex';
   }
 
-  // Optional: Click outside to close
-  document.addEventListener('click', function(event) {
-    const menu = document.getElementById('dropdown-menu');
-    const hamburger = document.querySelector('.hamburger');
-    if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
-      menu.style.display = 'none';
+  // Optional: Close overlay when clicking outside or pressing ESC
+  document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+      document.getElementById('menuOverlay').style.display = 'none';
     }
   });
+
+  document.addEventListener('click', function(event) {
+    const overlay = document.getElementById('menuOverlay');
+    const hamburger = document.querySelector('.hamburger');
+    if (
+      overlay.style.display === 'flex' &&
+      !overlay.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+      overlay.style.display = 'none';
+    }
+  });
+</script>
+
 </script>
 
 
