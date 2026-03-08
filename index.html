@@ -1,271 +1,816 @@
 <!DOCTYPE html>
-<html lang="te">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VBS Magatapalli</title>
-  <style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Sree Krushnadevaraya;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #f8f9fc, #e0f7fa);
-    color: #333;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VBS 2025 – LEF Magatapalli Church</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sun:#FFD700;--sky:#38BDF8;--grass:#4ADE80;
+    --coral:#FF6B6B;--purple:#A855F7;--orange:#FB923C;
+    --navy:#1E3A5F;--cream:#FFF8E7;
   }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--navy);overflow-x:hidden;}
 
-  header {
-    background: linear-gradient(135deg, #ffb347, #ffcc33);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+  /* NAV */
+  nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(255,253,247,0.95);backdrop-filter:blur(10px);border-bottom:3px solid var(--sun);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .nav-logo{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--coral);}
+  .nav-logo span{color:var(--purple);}
+  .nav-links{display:flex;gap:18px;list-style:none;}
+  .nav-links a{font-weight:700;color:var(--navy);text-decoration:none;font-size:0.9rem;transition:color .2s;}
+  .nav-links a:hover{color:var(--coral);}
+  .nav-right{display:flex;gap:8px;align-items:center;flex-shrink:0;}
+  .nav-btn{background:var(--coral);color:#fff;border:none;padding:9px 18px;border-radius:25px;font-family:'Nunito',sans-serif;font-weight:800;cursor:pointer;font-size:0.85rem;transition:transform .2s;text-decoration:none;white-space:nowrap;}
+  .nav-btn:hover{background:var(--orange);transform:scale(1.05);}
+  .admin-nav-btn{background:var(--navy);color:#fff;border:none;padding:9px 16px;border-radius:25px;font-family:'Nunito',sans-serif;font-weight:800;cursor:pointer;font-size:0.82rem;transition:transform .2s;white-space:nowrap;}
+  .admin-nav-btn:hover{background:#2d5a8e;transform:scale(1.05);}
+  @media(max-width:700px){.nav-links{display:none;}}
 
-  header img {
-    max-width: 100px;
-    height: auto;
-    margin-bottom: 10px;
-  }
+  /* HERO */
+  .hero{min-height:100vh;background:linear-gradient(180deg,#87CEEB 0%,#B0E0FF 45%,#7EC850 45%,#5DBB3F 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:80px;text-align:center;}
+  .cloud{position:absolute;background:white;border-radius:50px;opacity:0.85;animation:drift linear infinite;}
+  .cloud::before,.cloud::after{content:'';position:absolute;background:white;border-radius:50%;}
+  .c1{width:120px;height:40px;top:12%;left:-150px;animation-duration:22s;}
+  .c1::before{width:60px;height:60px;top:-30px;left:15px;}.c1::after{width:45px;height:45px;top:-22px;left:50px;}
+  .c2{width:180px;height:55px;top:20%;left:-200px;animation-duration:30s;animation-delay:-10s;}
+  .c2::before{width:80px;height:80px;top:-40px;left:20px;}.c2::after{width:60px;height:60px;top:-30px;left:70px;}
+  .c3{width:100px;height:35px;top:8%;left:-120px;animation-duration:18s;animation-delay:-5s;}
+  .c3::before{width:50px;height:50px;top:-25px;left:10px;}.c3::after{width:40px;height:40px;top:-18px;left:40px;}
+  @keyframes drift{from{transform:translateX(0);}to{transform:translateX(110vw);}}
+  .sun-deco{position:absolute;top:60px;right:80px;width:90px;height:90px;background:radial-gradient(circle,#FFE566,#FFD700);border-radius:50%;box-shadow:0 0 0 15px rgba(255,215,0,.25),0 0 0 30px rgba(255,215,0,.12);animation:pulse-sun 3s ease-in-out infinite;}
+  @keyframes pulse-sun{0%,100%{box-shadow:0 0 0 15px rgba(255,215,0,.25),0 0 0 30px rgba(255,215,0,.12);}50%{box-shadow:0 0 0 22px rgba(255,215,0,.3),0 0 0 44px rgba(255,215,0,.15);}}
+  .star{position:absolute;font-size:1.5rem;animation:twinkle 2s ease-in-out infinite;}
+  @keyframes twinkle{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
+  .hero-content{position:relative;z-index:5;padding:20px;}
+  .vbs-badge{display:inline-block;background:var(--sun);color:var(--navy);font-family:'Fredoka One',cursive;font-size:1rem;padding:8px 24px;border-radius:30px;margin-bottom:20px;letter-spacing:2px;box-shadow:3px 3px 0 rgba(0,0,0,.15);animation:bounce-in .8s cubic-bezier(.36,.07,.19,.97);}
+  @keyframes bounce-in{0%{transform:scale(0) rotate(-5deg);}60%{transform:scale(1.1) rotate(2deg);}100%{transform:scale(1) rotate(0);}}
+  .hero h1{font-family:'Fredoka One',cursive;font-size:clamp(3rem,8vw,6rem);line-height:1.1;color:white;text-shadow:4px 4px 0 rgba(0,0,0,.2);margin-bottom:10px;animation:slide-up .8s ease .3s both;}
+  .hero h1 .highlight{color:var(--sun);display:block;}
+  .hero-sub{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--navy);font-weight:800;margin-bottom:8px;animation:slide-up .8s ease .5s both;}
+  .church-name{font-family:'Pacifico',cursive;font-size:clamp(1.2rem,3vw,1.8rem);color:var(--navy);margin-bottom:30px;animation:slide-up .8s ease .6s both;}
+  @keyframes slide-up{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+  .date-banner{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;animation:slide-up .8s ease .7s both;}
+  .date-chip{background:white;border-radius:16px;padding:14px 24px;text-align:center;box-shadow:4px 4px 0 rgba(0,0,0,.12);border:3px solid var(--navy);min-width:90px;}
+  .date-chip .day{font-family:'Fredoka One',cursive;font-size:2rem;color:var(--coral);line-height:1;}
+  .date-chip .month{font-weight:800;font-size:0.85rem;color:var(--navy);}
+  .date-chip .weekday{font-size:0.75rem;color:#666;font-weight:600;}
+  .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:slide-up .8s ease .9s both;}
+  .btn-primary{background:var(--coral);color:white;padding:16px 36px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.1rem;text-decoration:none;border:3px solid var(--navy);box-shadow:4px 4px 0 var(--navy);transition:transform .15s,box-shadow .15s;display:inline-block;}
+  .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--navy);}
+  .btn-secondary{background:white;color:var(--navy);padding:16px 36px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.1rem;text-decoration:none;border:3px solid var(--navy);box-shadow:4px 4px 0 var(--navy);transition:transform .15s,box-shadow .15s;display:inline-block;}
+  .btn-secondary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--navy);}
+  .ground-deco{position:absolute;bottom:0;width:100%;display:flex;align-items:flex-end;justify-content:space-around;pointer-events:none;}
+  .tree{font-size:4rem;animation:sway 4s ease-in-out infinite;}
+  @keyframes sway{0%,100%{transform:rotate(-2deg);}50%{transform:rotate(2deg);}}
+  .balloons{position:absolute;top:0;right:10%;display:flex;gap:10px;pointer-events:none;}
+  .balloon{width:40px;height:50px;border-radius:50% 50% 45% 45%;position:relative;animation:float-up 6s ease-in-out infinite;}
+  .balloon::after{content:'';position:absolute;bottom:-20px;left:50%;width:1px;height:20px;background:rgba(0,0,0,.3);}
+  .b1{background:var(--coral);}.b2{background:var(--purple);animation-delay:-2s;}.b3{background:var(--sun);animation-delay:-4s;}
+  @keyframes float-up{0%,100%{transform:translateY(0);}50%{transform:translateY(-20px);}}
 
-  .theme {
-    background: #e94085;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 1.3em;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  }
+  /* COUNTDOWN */
+  .countdown-section{background:var(--navy);color:white;padding:50px 20px;text-align:center;}
+  .countdown-section h2{font-family:'Fredoka One',cursive;font-size:1.8rem;margin-bottom:24px;color:var(--sun);}
+  .countdown-grid{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+  .count-box{background:white;color:var(--navy);border-radius:16px;padding:20px 28px;min-width:100px;border:3px solid var(--sun);box-shadow:4px 4px 0 var(--sun);}
+  .count-num{font-family:'Fredoka One',cursive;font-size:3rem;line-height:1;color:var(--coral);}
+  .count-label{font-weight:800;font-size:0.85rem;color:#666;}
+  .vbs-live-banner{display:none;background:var(--grass);color:var(--navy);border-radius:16px;padding:20px 32px;font-family:'Fredoka One',cursive;font-size:1.5rem;border:3px solid var(--navy);box-shadow:4px 4px 0 var(--navy);}
 
-  .content {
-    padding: 30px;
-  }
+  /* ABOUT */
+  .section-tag{display:inline-block;background:var(--grass);color:var(--navy);font-weight:800;font-size:0.8rem;letter-spacing:2px;padding:6px 18px;border-radius:20px;margin-bottom:14px;border:2px solid var(--navy);}
+  .section-title{font-family:'Fredoka One',cursive;font-size:clamp(2rem,4vw,2.8rem);color:var(--navy);margin-bottom:16px;line-height:1.2;}
+  .section-body{font-size:1rem;line-height:1.8;color:#444;}
+  .about-section{padding:80px 20px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  @media(max-width:700px){.about-section{grid-template-columns:1fr;gap:30px;}}
+  .about-card{background:white;border-radius:24px;padding:36px;border:3px solid var(--navy);box-shadow:6px 6px 0 var(--navy);}
+  .about-card .emoji-row{font-size:2.5rem;margin-bottom:16px;}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;}
+  .info-item{background:var(--cream);border-radius:14px;padding:16px;border:2px solid #eee;text-align:center;}
+  .info-item .icon{font-size:1.8rem;margin-bottom:6px;}
+  .info-item .label{font-weight:700;font-size:0.8rem;color:#888;}
+  .info-item .value{font-weight:800;font-size:1rem;color:var(--navy);}
 
-  .schedule {
-    background: white;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
+  /* SCHEDULE */
+  .schedule-section{background:linear-gradient(135deg,#F0F9FF,#EEF2FF);padding:80px 20px;text-align:center;}
+  .schedule-inner{max-width:900px;margin:0 auto;}
+  .schedule-days{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:600px){.schedule-days{grid-template-columns:1fr;}}
+  .day-card{background:white;border-radius:20px;overflow:hidden;border:3px solid var(--navy);box-shadow:5px 5px 0 var(--navy);transition:transform .2s;}
+  .day-card:hover{transform:translate(-3px,-3px);}
+  .day-header{padding:18px;font-family:'Fredoka One',cursive;font-size:1.3rem;color:white;}
+  .day-card:nth-child(1) .day-header{background:var(--coral);}
+  .day-card:nth-child(2) .day-header{background:var(--purple);}
+  .day-card:nth-child(3) .day-header{background:var(--sky);color:var(--navy);}
+  .day-body{padding:20px;}
+  .time-slot{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;text-align:left;}
+  .time-slot .t{font-weight:700;font-size:0.78rem;color:#888;min-width:55px;padding-top:2px;}
+  .time-slot .a{font-weight:700;font-size:0.88rem;color:var(--navy);}
 
-  h2 {
-    color: #333366;
-    font-size: 15px;
-    margin-bottom: 10px;
-  }
+  /* WHY */
+  .why-section{background:var(--navy);padding:80px 20px;text-align:center;}
+  .why-section .section-title{color:white;margin-bottom:40px;}
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1000px;margin:0 auto;}
+  .feature-card{background:white;border-radius:20px;padding:28px 20px;border:3px solid var(--sun);box-shadow:5px 5px 0 var(--sun);transition:transform .2s;}
+  .feature-card:hover{transform:translateY(-5px);}
+  .feature-card .icon{font-size:2.8rem;margin-bottom:12px;}
+  .feature-card h3{font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--navy);margin-bottom:8px;}
+  .feature-card p{font-size:0.88rem;color:#555;line-height:1.6;}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    margin-bottom: 30px;
-  }
+  /* REGISTRATION */
+  .reg-section{padding:80px 20px;}
+  .reg-card{background:white;border-radius:28px;border:3px solid var(--navy);box-shadow:8px 8px 0 var(--navy);overflow:hidden;max-width:680px;margin:0 auto;}
+  .reg-header{background:linear-gradient(135deg,var(--coral),var(--orange));padding:36px;text-align:center;color:white;}
+  .reg-header h2{font-family:'Fredoka One',cursive;font-size:2.2rem;margin-bottom:8px;}
+  .reg-header p{opacity:.9;font-weight:600;}
+  .reg-body{padding:36px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:500px){.form-row{grid-template-columns:1fr;}}
+  .form-group{margin-bottom:20px;}
+  .form-group label{display:block;font-weight:800;font-size:0.85rem;color:var(--navy);margin-bottom:6px;}
+  .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:2.5px solid #DDD;border-radius:12px;font-family:'Nunito',sans-serif;font-size:0.95rem;transition:border-color .2s;outline:none;background:var(--cream);}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--coral);background:white;box-shadow:0 0 0 3px rgba(255,107,107,.15);}
+  .form-group textarea{resize:vertical;min-height:80px;}
+  .submit-btn{width:100%;background:var(--coral);color:white;border:3px solid var(--navy);border-radius:16px;padding:18px;font-family:'Fredoka One',cursive;font-size:1.3rem;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:4px 4px 0 var(--navy);margin-top:8px;}
+  .submit-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--navy);background:var(--orange);}
+  .submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+  .success-msg{display:none;background:#DCFCE7;border:2px solid var(--grass);border-radius:14px;padding:20px;text-align:center;font-weight:700;color:#166534;margin-top:16px;}
+  .success-msg .big{font-size:2rem;display:block;margin-bottom:6px;}
+  .error-msg{display:none;background:#FEE2E2;border:2px solid var(--coral);border-radius:14px;padding:16px;text-align:center;font-weight:700;color:#991B1B;margin-top:16px;}
 
-  th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
+  /* MATERIALS */
+  .materials-section{padding:80px 20px;text-align:center;background:linear-gradient(135deg,#FFFBEB,#FFF7F7);}
+  .materials-inner{max-width:800px;margin:0 auto;}
+  .material-box{background:white;border:3px solid var(--navy);border-radius:24px;padding:36px;margin-top:30px;box-shadow:6px 6px 0 var(--navy);display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center;text-align:left;}
+  .material-box .big-emoji{font-size:4rem;}
+  .material-box h3{font-family:'Fredoka One',cursive;font-size:1.5rem;color:var(--navy);margin-bottom:8px;}
+  .material-box p{color:#555;line-height:1.7;max-width:430px;}
+  .material-link{display:inline-block;margin-top:14px;background:var(--sun);color:var(--navy);padding:12px 28px;border-radius:30px;font-weight:900;text-decoration:none;font-size:0.9rem;border:2.5px solid var(--navy);box-shadow:3px 3px 0 var(--navy);transition:transform .15s;}
+  .material-link:hover{transform:translate(-2px,-2px);}
 
-  thead {
-    background-color: #fff3cd;
-  }
+  /* FOOTER */
+  footer{background:var(--navy);color:white;text-align:center;padding:50px 20px;}
+  footer .church-logo{font-family:'Pacifico',cursive;font-size:1.8rem;color:var(--sun);margin-bottom:10px;}
+  footer p{color:rgba(255,255,255,.7);margin-bottom:6px;font-size:0.9rem;}
+  footer .footer-links{display:flex;gap:20px;justify-content:center;margin:20px 0;flex-wrap:wrap;}
+  footer .footer-links a{color:var(--sky);text-decoration:none;font-weight:700;font-size:0.9rem;}
+  footer .copyright{color:rgba(255,255,255,.4);font-size:0.8rem;margin-top:20px;}
 
-  .morning-title, .afternoon-title {
-    color: #222;
-    font-size: 1.1em;
-    margin-top: 30px;
-    margin-bottom: 10px;
-  }
+  /* ═══ LOGIN MODAL ═══ */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(5px);}
+  .modal-overlay.active{display:flex;}
+  .modal-box{background:white;border-radius:24px;padding:40px;width:90%;max-width:400px;border:3px solid var(--navy);box-shadow:8px 8px 0 var(--navy);position:relative;text-align:center;}
+  .modal-box h2{font-family:'Fredoka One',cursive;font-size:1.8rem;color:var(--navy);margin-bottom:6px;}
+  .modal-box p{color:#666;font-size:0.9rem;margin-bottom:24px;}
+  .modal-input{width:100%;padding:14px 16px;border:2.5px solid #DDD;border-radius:12px;font-family:'Nunito',sans-serif;font-size:1rem;outline:none;margin-bottom:12px;background:var(--cream);text-align:left;}
+  .modal-input:focus{border-color:var(--navy);background:white;}
+  .modal-btn{width:100%;background:var(--navy);color:white;border:none;padding:15px;border-radius:12px;font-family:'Fredoka One',cursive;font-size:1.2rem;cursor:pointer;transition:background .2s;}
+  .modal-btn:hover{background:#2d5a8e;}
+  .modal-btn:disabled{opacity:.6;cursor:not-allowed;}
+  .modal-close{position:absolute;top:14px;right:18px;font-size:1.4rem;cursor:pointer;color:#aaa;background:none;border:none;}
+  .modal-close:hover{color:var(--coral);}
+  .modal-err{color:var(--coral);font-weight:700;font-size:0.85rem;margin-top:10px;display:none;}
+  .modal-loading{color:#888;font-size:0.85rem;margin-top:8px;display:none;}
 
-  .hamburger {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    background-color: #135deg;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 6px;
-    z-index: 2000;
-    transition: background-color 0.3s ease;
-  }
+  /* ═══ ADMIN DASHBOARD ═══ */
+  .admin-panel{display:none;position:fixed;inset:0;background:#F1F5F9;z-index:999;overflow-y:auto;}
+  .admin-panel.active{display:block;}
+  .admin-topbar{background:var(--navy);color:white;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;gap:12px;flex-wrap:wrap;}
+  .admin-topbar .logo{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--sun);}
+  .admin-topbar .logo span{color:rgba(255,255,255,.65);font-size:0.8rem;font-family:'Nunito',sans-serif;font-weight:600;display:block;}
+  .role-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.78rem;font-weight:800;font-family:'Nunito',sans-serif;}
+  .role-admin{background:#FEF3C7;color:#92400E;}
+  .role-viewer{background:#DBEAFE;color:#1E40AF;}
+  .topbar-right{display:flex;gap:10px;align-items:center;}
+  .logout-btn{background:rgba(255,255,255,.15);color:white;border:2px solid rgba(255,255,255,.3);padding:8px 18px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;cursor:pointer;font-size:0.85rem;transition:background .2s;}
+  .logout-btn:hover{background:rgba(255,255,255,.25);}
+  .refresh-btn{background:var(--sun);color:var(--navy);border:none;padding:8px 18px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:800;cursor:pointer;font-size:0.85rem;transition:transform .2s;}
+  .refresh-btn:hover{transform:scale(1.05);}
+  .admin-content{max-width:1300px;margin:0 auto;padding:28px 20px;}
 
-  .hamburger.active {
-    background-color: #e94085;
-  }
+  /* Stats */
+  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:26px;}
+  .stat-card{background:white;border-radius:18px;padding:22px;border:2px solid #E2E8F0;box-shadow:0 2px 8px rgba(0,0,0,.06);text-align:center;}
+  .stat-card .s-num{font-family:'Fredoka One',cursive;font-size:2.5rem;line-height:1;}
+  .stat-card .s-label{font-weight:700;font-size:0.8rem;color:#64748B;margin-top:4px;}
+  .c-total .s-num{color:var(--coral);}
+  .c-boys .s-num{color:#2563EB;}
+  .c-girls .s-num{color:var(--purple);}
+  .c-today .s-num{color:#16A34A;}
 
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50%;
-    background: #e94085;
-    color: white;
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 80px;
-    z-index: 1500;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-  }
+  /* Table */
+  .table-card{background:white;border-radius:18px;border:2px solid #E2E8F0;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden;}
+  .table-header{padding:18px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #F1F5F9;flex-wrap:wrap;gap:12px;}
+  .table-header h3{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--navy);}
+  .search-box{padding:10px 14px;border:2px solid #E2E8F0;border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.88rem;outline:none;width:200px;}
+  .search-box:focus{border-color:var(--coral);}
+  .export-btn{background:#4ADE80;color:var(--navy);border:none;padding:10px 18px;border-radius:10px;font-family:'Nunito',sans-serif;font-weight:800;cursor:pointer;font-size:0.85rem;transition:transform .2s;}
+  .export-btn:hover{transform:scale(1.05);}
+  .filter-row{display:flex;gap:8px;padding:12px 22px;border-bottom:2px solid #F1F5F9;flex-wrap:wrap;}
+  .filter-btn{background:#F1F5F9;color:#64748B;border:none;padding:6px 14px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;cursor:pointer;font-size:0.8rem;transition:all .2s;}
+  .filter-btn.active,.filter-btn:hover{background:var(--navy);color:white;}
+  .table-wrap{overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;}
+  th{background:#F8FAFC;padding:11px 14px;text-align:left;font-weight:800;font-size:0.76rem;color:#64748B;letter-spacing:.5px;border-bottom:2px solid #E2E8F0;white-space:nowrap;}
+  td{padding:12px 14px;border-bottom:1px solid #F1F5F9;font-size:0.86rem;color:#334155;vertical-align:middle;}
+  tr:hover td{background:#FAFAFE;}
+  tr:last-child td{border-bottom:none;}
+  .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-weight:700;font-size:0.73rem;}
+  .b-boy{background:#DBEAFE;color:#1E40AF;}
+  .b-girl{background:#FCE7F3;color:#9D174D;}
+  .b-days{background:#FEF3C7;color:#92400E;font-size:0.7rem;}
+  .no-data{text-align:center;padding:50px;color:#94A3B8;font-weight:700;}
+  .no-data .ni{font-size:3rem;display:block;margin-bottom:10px;}
+  .loading-row{text-align:center;padding:40px;color:#94A3B8;font-weight:700;}
+  .del-btn{background:#FEE2E2;color:#DC2626;border:none;padding:5px 11px;border-radius:8px;cursor:pointer;font-size:0.76rem;font-weight:700;transition:background .2s;}
+  .del-btn:hover{background:#FECACA;}
 
-  .overlay-content {
-    padding-left: 20px;
-    font-size: 16px;
-  }
-
-  .overlay-content a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    margin: 15px 0;
-    font-size: 1.4em;
-    transition: color 0.2s ease;
-  }
-
-  .overlay-content a:hover {
-    color: #ffcdd2;
-  }
-
-  a {
-    color: #e94085;
-    text-decoration: none;
-  }
-
-  a.button-link {
-    display: inline-block;
-    background-color: #e94085;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-
-  a.button-link:hover {
-    background-color: #d63072;
-  }
-
-  ul {
-    padding-left: 0;
-    list-style: none;
-  }
-
-  li a {
-    color: #333366;
-  }
-
-  li a:hover {
-    color: #e94085;
-  }
+  /* Viewer notice banner */
+  .viewer-notice{background:#EFF6FF;border:2px solid #93C5FD;border-radius:12px;padding:14px 20px;margin-bottom:20px;color:#1E40AF;font-weight:700;font-size:0.9rem;display:none;}
+  .viewer-notice.show{display:flex;align-items:center;gap:10px;}
 </style>
-
 </head>
 <body>
 
-  <header>
-    <img src="ThemeLogo.jpg" alt="VBS Logo" />
-    <h1>VBS Magatapalli</h1>
-  </header>
-
-<!-- Hamburger Menu -->
-<div class="hamburger" onclick="toggleOverlay()">☰</div>
-
-<!-- Full-width Overlay -->
-<div id="menuOverlay" class="overlay">
-  <div class="overlay-content">
-    <a href="index.html">🏠 Home</a>
-    <a href="TeachersContent.html">🎓 Teachers</a>
-	<a href="Schedule.html">📅 Schedule</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">✝ LEF <span>VBS</span> 2025</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#register">Register</a></li>
+    <li><a href="#materials">Materials</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#register" class="nav-btn">🎒 Register</a>
+    <button class="admin-nav-btn" onclick="openAdminLogin()">🔐 Admin / Viewer</button>
   </div>
-</div>
+</nav>
 
-
-
-  <div class="theme">
-    <strong>Theme:</strong> HONOURABLE VESSEL (ఘనత నిమితమైన పాత్ర)
-  </div>
-
-  <div class="content">
-    <div class="schedule">
-      <h2>తేదీలు: ఏప్రిల్ - 25, 26, 27</h2>
-	  <h2>సమయం:  9:00 AM to 4:30 PM </h2>
-  <h2 style="margin: 0;">స్థలం: L E F చర్చి, మగటపల్లి</h2>
-  <br>
-  <a href="https://maps.app.goo.gl/6hoQ7uWWnATLbof66" 
-     target="_blank" 
-     style="color: #004080; font-weight: bold; text-decoration: none; font-size: 1em;">
-    📍 Directions
-  </a>
-<br><br>
-  <div>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGN_hdB93CSHR1IN5wUhLjnNVViKrZkiCat4b7mFGmKS78ZQ/viewform?usp=header" target="_blank" style="display: inline-block; background-color: #004080; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px;">
-  📋 Register Now
-</a>
-</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  <div class="sun-deco"></div>
+  <span class="star" style="top:15%;left:8%">⭐</span>
+  <span class="star" style="top:25%;left:20%;animation-delay:.5s">🌟</span>
+  <span class="star" style="top:10%;right:25%;animation-delay:1s">✨</span>
+  <span class="star" style="top:30%;right:12%;animation-delay:1.5s">⭐</span>
+  <div class="balloons"><div class="balloon b1"></div><div class="balloon b2"></div><div class="balloon b3"></div></div>
+  <div class="hero-content">
+    <div class="vbs-badge">✝ VACATION BIBLE SCHOOL 2025 ✝</div>
+    <h1>Fun, Faith<span class="highlight">&amp; Friends!</span></h1>
+    <p class="hero-sub">Join us for an incredible summer adventure</p>
+    <p class="church-name">LEF Magatapalli Church</p>
+    <div class="date-banner">
+      <div class="date-chip"><div class="day">25</div><div class="month">APRIL</div><div class="weekday">Friday</div></div>
+      <div class="date-chip"><div class="day">26</div><div class="month">APRIL</div><div class="weekday">Saturday</div></div>
+      <div class="date-chip"><div class="day">27</div><div class="month">APRIL</div><div class="weekday">Sunday</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#register" class="btn-primary">🎒 Register Your Child</a>
+      <a href="#schedule" class="btn-secondary">📅 View Schedule</a>
     </div>
   </div>
-<div class="content">
-  <div class="schedule" style="margin-top: 40px;">
-    <h2>Contact Us</h2>
-    <ul style="list-style: none; padding-left: 0; line-height: 2;">
-      <li>📞 <a href="tel:+919949307671" style="color: #004080; text-decoration: none;">+91 9949307671 - Prasanna </a></li>
-      <li>📞 <a href="tel:+919000912358" style="color: #004080; text-decoration: none;">+91 9000912358 - Prasad </a></li>
-      <li>📞 <a href="tel:+919989983936" style="color: #004080; text-decoration: none;">+91 9989983936 - Satyam </a></li>
-    </ul>
+  <div class="ground-deco">
+    <div class="tree">🌳</div><div class="tree" style="animation-delay:-1s;font-size:3rem">🌲</div>
+    <div class="tree" style="animation-delay:-2s">🌳</div><div class="tree" style="font-size:2.5rem;animation-delay:-.5s">🌲</div>
+    <div class="tree" style="animation-delay:-1.5s">🌳</div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown-section">
+  <h2>⏳ Counting Down to VBS!</h2>
+  <div class="countdown-grid" id="countdownGrid">
+    <div class="count-box"><div class="count-num" id="cnt-days">--</div><div class="count-label">DAYS</div></div>
+    <div class="count-box"><div class="count-num" id="cnt-hours">--</div><div class="count-label">HOURS</div></div>
+    <div class="count-box"><div class="count-num" id="cnt-mins">--</div><div class="count-label">MINUTES</div></div>
+    <div class="count-box"><div class="count-num" id="cnt-secs">--</div><div class="count-label">SECONDS</div></div>
+  </div>
+  <div class="vbs-live-banner" id="vbsLive">🎉 VBS is Happening NOW! God bless you all! 🙏</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-section">
+    <div>
+      <div class="section-tag">ABOUT VBS 2025</div>
+      <h2 class="section-title">Three Days of<br>Adventure & Faith!</h2>
+      <p class="section-body">Vacation Bible School at <strong>LEF Magatapalli Church</strong> is a fun-filled, faith-building experience for children of all ages! Over three amazing days, kids will learn Bible stories, sing uplifting songs, make new friends, and discover the love of God in exciting ways.<br><br>Whether your child is coming for the first time or returning, VBS 2025 will be unforgettable. All are welcome! 🎉</p>
+      <div class="info-grid">
+        <div class="info-item"><div class="icon">📍</div><div class="label">Location</div><div class="value">LEF Magatapalli</div></div>
+        <div class="info-item"><div class="icon">📅</div><div class="label">Dates</div><div class="value">Apr 25, 26 & 27</div></div>
+        <div class="info-item"><div class="icon">👶</div><div class="label">Ages</div><div class="value">3 – 15 Years</div></div>
+        <div class="info-item"><div class="icon">💰</div><div class="label">Cost</div><div class="value">Free of Charge</div></div>
+      </div>
+    </div>
+    <div class="about-card">
+      <div class="emoji-row">🙏 📖 🎵 🎨 🤝</div>
+      <h3 style="font-family:'Fredoka One',cursive;font-size:1.5rem;margin-bottom:12px">What to Expect</h3>
+      <ul style="list-style:none;padding:0;">
+        <li style="padding:10px 0;border-bottom:2px dashed #eee;font-weight:700">🎵 &nbsp;Worship Songs & Praise</li>
+        <li style="padding:10px 0;border-bottom:2px dashed #eee;font-weight:700">📖 &nbsp;Exciting Bible Lessons</li>
+        <li style="padding:10px 0;border-bottom:2px dashed #eee;font-weight:700">🎨 &nbsp;Creative Arts & Crafts</li>
+        <li style="padding:10px 0;border-bottom:2px dashed #eee;font-weight:700">🎮 &nbsp;Fun Games & Activities</li>
+        <li style="padding:10px 0;border-bottom:2px dashed #eee;font-weight:700">🍪 &nbsp;Snacks & Fellowship</li>
+        <li style="padding:10px 0;font-weight:700">🏆 &nbsp;Prizes & Certificates</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="schedule-section">
+  <div class="schedule-inner">
+    <div class="section-tag">DAILY PROGRAM</div>
+    <h2 class="section-title">3-Day Schedule</h2>
+    <div class="schedule-days">
+      <div class="day-card">
+        <div class="day-header">🌅 Day 1 – April 25</div>
+        <div class="day-body">
+          <div class="time-slot"><span class="t">9:00 AM</span><span class="a">Welcome & Registration</span></div>
+          <div class="time-slot"><span class="t">9:30 AM</span><span class="a">Opening Worship & Prayer</span></div>
+          <div class="time-slot"><span class="t">10:00 AM</span><span class="a">Bible Lesson – Creation</span></div>
+          <div class="time-slot"><span class="t">11:00 AM</span><span class="a">Arts & Crafts</span></div>
+          <div class="time-slot"><span class="t">11:30 AM</span><span class="a">Snack Time</span></div>
+          <div class="time-slot"><span class="t">12:00 PM</span><span class="a">Games & Activities</span></div>
+          <div class="time-slot"><span class="t">1:00 PM</span><span class="a">Closing Prayer</span></div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header">☀️ Day 2 – April 26</div>
+        <div class="day-body">
+          <div class="time-slot"><span class="t">9:00 AM</span><span class="a">Praise & Worship Songs</span></div>
+          <div class="time-slot"><span class="t">9:30 AM</span><span class="a">Scripture Memory Time</span></div>
+          <div class="time-slot"><span class="t">10:00 AM</span><span class="a">Bible Lesson – Salvation</span></div>
+          <div class="time-slot"><span class="t">11:00 AM</span><span class="a">Drama & Storytelling</span></div>
+          <div class="time-slot"><span class="t">11:30 AM</span><span class="a">Snack Time</span></div>
+          <div class="time-slot"><span class="t">12:00 PM</span><span class="a">Team Games & Fun</span></div>
+          <div class="time-slot"><span class="t">1:00 PM</span><span class="a">Group Prayer</span></div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header">🌟 Day 3 – April 27</div>
+        <div class="day-body">
+          <div class="time-slot"><span class="t">9:00 AM</span><span class="a">Grand Worship Celebration</span></div>
+          <div class="time-slot"><span class="t">9:30 AM</span><span class="a">Children's Presentations</span></div>
+          <div class="time-slot"><span class="t">10:00 AM</span><span class="a">Bible Lesson – God's Love</span></div>
+          <div class="time-slot"><span class="t">11:00 AM</span><span class="a">Awards & Certificates</span></div>
+          <div class="time-slot"><span class="t">11:30 AM</span><span class="a">Special Lunch Together</span></div>
+          <div class="time-slot"><span class="t">12:30 PM</span><span class="a">Closing Service</span></div>
+          <div class="time-slot"><span class="t">1:00 PM</span><span class="a">Farewell & Blessings</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VBS -->
+<section class="why-section">
+  <div class="section-tag" style="background:var(--sun)">WHY VBS?</div>
+  <h2 class="section-title">Why Send Your Child to VBS?</h2>
+  <div class="features-grid">
+    <div class="feature-card"><div class="icon">✝️</div><h3>Grow in Faith</h3><p>Children learn biblical truths through stories and songs that stay with them for life.</p></div>
+    <div class="feature-card"><div class="icon">👯</div><h3>Make Friends</h3><p>A safe, welcoming community where children bond and build lasting friendships in Christ.</p></div>
+    <div class="feature-card"><div class="icon">🧠</div><h3>Learn & Grow</h3><p>Creative lessons that engage young minds and make learning about God exciting.</p></div>
+    <div class="feature-card"><div class="icon">🎉</div><h3>Have Fun!</h3><p>Games, crafts, music, snacks — VBS is the highlight of any child's year!</p></div>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section id="register" class="reg-section">
+  <div class="reg-card">
+    <div class="reg-header">
+      <div style="font-size:2.5rem;margin-bottom:10px">📋</div>
+      <h2>Register Now!</h2>
+      <p>Secure your child's spot — April 25, 26 & 27, 2025</p>
+    </div>
+    <div class="reg-body">
+      <div class="form-row">
+        <div class="form-group"><label>Child's First Name *</label><input type="text" id="childFirst" placeholder="First name"></div>
+        <div class="form-group"><label>Child's Last Name *</label><input type="text" id="childLast" placeholder="Last name"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Age *</label>
+          <select id="childAge"><option value="">Select age</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option></select>
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <select id="childGender"><option value="">Select</option><option>Boy</option><option>Girl</option></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Parent/Guardian Name *</label><input type="text" id="parentName" placeholder="Full name"></div>
+        <div class="form-group"><label>Phone Number *</label><input type="tel" id="parentPhone" placeholder="+91 00000 00000"></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" id="parentEmail" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Address / Village</label><input type="text" id="address" placeholder="Village / Town name"></div>
+      <div class="form-group"><label>Church / Denomination</label><input type="text" id="church" placeholder="e.g. LEF Church, Magatapalli"></div>
+      <div class="form-group">
+        <label>Days Attending</label>
+        <select id="days">
+          <option>All 3 Days (Apr 25, 26 & 27)</option>
+          <option>Day 1 Only – April 25</option>
+          <option>Day 2 Only – April 26</option>
+          <option>Day 3 Only – April 27</option>
+          <option>Day 1 & 2 – April 25 & 26</option>
+          <option>Day 2 & 3 – April 26 & 27</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Special Needs or Allergies</label><textarea id="special" placeholder="Any medical conditions, allergies, or special requirements..."></textarea></div>
+      <button class="submit-btn" id="submitBtn" onclick="submitRegistration()">🙏 Complete Registration</button>
+      <div class="success-msg" id="successMsg"><span class="big">🎉</span>Registration submitted!<br>We look forward to seeing <strong id="regChildName"></strong> at VBS 2025!<br><span style="font-size:0.85rem;color:#166534;margin-top:6px;display:block">God bless you! 🙏</span></div>
+      <div class="error-msg" id="errorMsg">⚠️ Something went wrong. Please try again.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materials" class="materials-section">
+  <div class="materials-inner">
+    <div class="section-tag">VBS RESOURCES</div>
+    <h2 class="section-title">VBS Materials & Books</h2>
+    <p class="section-body" style="max-width:600px;margin:0 auto;color:#555">Find quality VBS curriculum, books, activity sheets, and teaching materials.</p>
+    <div class="material-box">
+      <div class="big-emoji">📚</div>
+      <div>
+        <h3>VBS Books & Curriculum</h3>
+        <p>Complete VBS kits, Bible story books, activity books, crafts, music, and more — all designed to engage children and teach God's Word effectively.</p>
+        <a href="https://vbsministries.com" target="_blank" class="material-link">🌐 Visit VBSMinistries.com →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="church-logo">✝ LEF Magatapalli Church</div>
+  <p>Vacation Bible School 2025 &nbsp;|&nbsp; April 25–27</p>
+  <p>Magatapalli, Andhra Pradesh, India</p>
+  <div class="footer-links">
+    <a href="#about">About</a><a href="#schedule">Schedule</a><a href="#register">Register</a><a href="#materials">Materials</a>
+  </div>
+  <p>📞 Contact your local church leader for more information</p>
+  <div class="copyright">© 2025 LEF Magatapalli Church. All rights reserved. | Built with ❤️ & Faith</div>
+</footer>
+
+<!-- ═══ LOGIN MODAL ═══ -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeAdminLogin()">✕</button>
+    <div style="font-size:2.5rem;margin-bottom:12px">🔐</div>
+    <h2>Secure Login</h2>
+    <p>Sign in with your authorised Google / email account to access the dashboard.</p>
+    <input type="email" class="modal-input" id="loginEmail" placeholder="Email address" autocomplete="email">
+    <input type="password" class="modal-input" id="loginPass" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="modal-btn" id="loginBtn" onclick="doLogin()">🔓 Sign In</button>
+    <div class="modal-err" id="loginErr"></div>
+    <div class="modal-loading" id="loginLoading">⏳ Verifying…</div>
   </div>
 </div>
 
-<script>
-/*  function toggleOverlay() {
-    const overlay = document.getElementById('menuOverlay');
-    overlay.style.display = (overlay.style.display === 'flex') ? 'none' : 'flex';
-  } */
-  
-  function toggleOverlay() {
-  const overlay = document.getElementById('menuOverlay');
-  const hamburger = document.querySelector('.hamburger');
-  const isOpen = overlay.style.display === 'flex';
+<!-- ═══ ADMIN / VIEWER DASHBOARD ═══ -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-topbar">
+    <div class="logo">
+      ✝ VBS Dashboard
+      <span id="loggedInEmail">LEF Magatapalli Church — 2025</span>
+    </div>
+    <div class="topbar-right">
+      <span class="role-badge" id="roleBadge"></span>
+      <button class="refresh-btn" onclick="loadRegistrations()">🔄 Refresh</button>
+      <button class="logout-btn" onclick="logoutAdmin()">⬅ Logout</button>
+    </div>
+  </div>
+  <div class="admin-content">
 
-  overlay.style.display = isOpen ? 'none' : 'flex';
-  hamburger.classList.toggle('active', !isOpen);
-}
+    <div class="viewer-notice" id="viewerNotice">
+      👁️ You are logged in as a <strong>Viewer</strong>. You can view registrations but cannot delete or export data.
+    </div>
 
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card c-total"><div class="s-num" id="stat-total">—</div><div class="s-label">Total Registrations</div></div>
+      <div class="stat-card c-boys"><div class="s-num" id="stat-boys">—</div><div class="s-label">Boys</div></div>
+      <div class="stat-card c-girls"><div class="s-num" id="stat-girls">—</div><div class="s-label">Girls</div></div>
+      <div class="stat-card c-today"><div class="s-num" id="stat-today">—</div><div class="s-label">Registered Today</div></div>
+    </div>
 
-  // Optional: Close overlay when clicking outside or pressing ESC
-  document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape") {
-      document.getElementById('menuOverlay').style.display = 'none';
+    <!-- Table -->
+    <div class="table-card">
+      <div class="table-header">
+        <h3>📋 All Registrations</h3>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+          <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search name, phone…" oninput="filterTable()">
+          <button class="export-btn" id="exportBtn" onclick="exportCSV()" style="display:none">⬇ Export CSV</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+        <button class="filter-btn" onclick="setFilter('Boy',this)">Boys</button>
+        <button class="filter-btn" onclick="setFilter('Girl',this)">Girls</button>
+        <button class="filter-btn" onclick="setFilter('25',this)">Day 1 (Apr 25)</button>
+        <button class="filter-btn" onclick="setFilter('26',this)">Day 2 (Apr 26)</button>
+        <button class="filter-btn" onclick="setFilter('27',this)">Day 3 (Apr 27)</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>Child Name</th><th>Age</th><th>Gender</th>
+              <th>Parent</th><th>Phone</th><th>Village</th>
+              <th>Days</th><th>Registered On</th><th id="deleteColHead"></th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr><td colspan="10" class="loading-row">⏳ Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp }    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, signOut }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, serverTimestamp }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCyRi40MzD1EvwxfX5X5iyvO2u8LD7k4CE",
+    authDomain: "vbs-magatapalli.firebaseapp.com",
+    projectId: "vbs-magatapalli",
+    storageBucket: "vbs-magatapalli.firebasestorage.app",
+    messagingSenderId: "476386962924",
+    appId: "1:476386962924:web:9b95d60eee3201af8d24c9"
+  };
+
+  const ADMIN_EMAIL  = "prasad2995@gmail.com";
+  const VIEWER_EMAIL = "lefchurchmagatapalli@gmail.com";
+
+  const app  = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db   = getFirestore(app);
+
+  let allData     = [];
+  let activeFilter = 'all';
+  let currentRole  = null; // 'admin' | 'viewer'
+
+  /* ── Modal ── */
+  window.openAdminLogin = () => {
+    document.getElementById('loginModal').classList.add('active');
+    setTimeout(() => document.getElementById('loginEmail').focus(), 100);
+  };
+  window.closeAdminLogin = () => {
+    document.getElementById('loginModal').classList.remove('active');
+    document.getElementById('loginEmail').value = '';
+    document.getElementById('loginPass').value  = '';
+    document.getElementById('loginErr').style.display     = 'none';
+    document.getElementById('loginLoading').style.display = 'none';
+    document.getElementById('loginBtn').disabled = false;
+  };
+
+  /* ── Login ── */
+  window.doLogin = async () => {
+    const email = document.getElementById('loginEmail').value.trim();
+    const pass  = document.getElementById('loginPass').value;
+    const errEl = document.getElementById('loginErr');
+    errEl.style.display = 'none';
+
+    if(!email || !pass){ errEl.textContent='Please enter email and password.'; errEl.style.display='block'; return; }
+
+    // Only allow known emails
+    if(email !== ADMIN_EMAIL && email !== VIEWER_EMAIL){
+      errEl.textContent = '❌ You are not authorised to access this dashboard.';
+      errEl.style.display = 'block';
+      return;
     }
-  });
 
-  document.addEventListener('click', function(event) {
-    const overlay = document.getElementById('menuOverlay');
-    const hamburger = document.querySelector('.hamburger');
-    if (
-      overlay.style.display === 'flex' &&
-      !overlay.contains(event.target) &&
-      !hamburger.contains(event.target)
-    ) {
-      overlay.style.display = 'none';
+    document.getElementById('loginBtn').disabled = true;
+    document.getElementById('loginLoading').style.display = 'block';
+
+    try {
+      await signInWithEmailAndPassword(auth, email, pass);
+      currentRole = (email === ADMIN_EMAIL) ? 'admin' : 'viewer';
+      window.closeAdminLogin();
+      openDashboard();
+    } catch(e) {
+      let msg = '❌ Login failed. Check your email and password.';
+      if(e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') msg = '❌ Incorrect password. Try again.';
+      if(e.code === 'auth/user-not-found') msg = '❌ No account found for this email.';
+      if(e.code === 'auth/too-many-requests') msg = '❌ Too many attempts. Please try again later.';
+      errEl.textContent = msg;
+      errEl.style.display = 'block';
+      document.getElementById('loginBtn').disabled = false;
+      document.getElementById('loginLoading').style.display = 'none';
     }
-  });
-  
-  // Hide overlay on scroll
-window.addEventListener('scroll', function () {
-  const overlay = document.getElementById('menuOverlay');
-  if (overlay.style.display === 'flex') {
-    overlay.style.display = 'none';
+  };
+
+  function openDashboard(){
+    const isAdmin = currentRole === 'admin';
+
+    // Role badge
+    const badge = document.getElementById('roleBadge');
+    badge.textContent   = isAdmin ? '🔴 Admin' : '🟡 Viewer';
+    badge.className     = 'role-badge ' + (isAdmin ? 'role-admin' : 'role-viewer');
+
+    // Logged in label
+    document.getElementById('loggedInEmail').textContent = auth.currentUser?.email || '';
+
+    // Viewer notice
+    document.getElementById('viewerNotice').classList.toggle('show', !isAdmin);
+
+    // Export button — admin only
+    document.getElementById('exportBtn').style.display = isAdmin ? 'block' : 'none';
+
+    // Delete column header
+    document.getElementById('deleteColHead').textContent = isAdmin ? 'Delete' : '';
+
+    document.getElementById('adminPanel').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    loadRegistrations();
   }
-});
+
+  window.logoutAdmin = async () => {
+    await signOut(auth);
+    currentRole = null;
+    document.getElementById('adminPanel').classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  /* ── Data ── */
+  window.loadRegistrations = async () => {
+    document.getElementById('tableBody').innerHTML = '<tr><td colspan="10" class="loading-row">⏳ Loading registrations…</td></tr>';
+    try {
+      const snap = await getDocs(query(collection(db,'registrations'), orderBy('createdAt','desc')));
+      allData = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      refreshStats();
+      applyFilters();
+    } catch(err) {
+      document.getElementById('tableBody').innerHTML = `<tr><td colspan="10" class="no-data"><span class="ni">⚠️</span>Could not load data.<br>Make sure Firestore is in test mode.</td></tr>`;
+    }
+  };
+
+  function refreshStats(){
+    const today = new Date().toDateString();
+    document.getElementById('stat-total').textContent  = allData.length;
+    document.getElementById('stat-boys').textContent   = allData.filter(r=>r.gender==='Boy').length;
+    document.getElementById('stat-girls').textContent  = allData.filter(r=>r.gender==='Girl').length;
+    document.getElementById('stat-today').textContent  = allData.filter(r=>{
+      try{ return new Date(r.createdAt.toDate()).toDateString()===today; }catch{ return false; }
+    }).length;
+  }
+
+  function renderRows(data){
+    const tb = document.getElementById('tableBody');
+    if(!data.length){ tb.innerHTML='<tr><td colspan="10" class="no-data"><span class="ni">📋</span>No registrations found.</td></tr>'; return; }
+    const isAdmin = currentRole === 'admin';
+    tb.innerHTML = data.map((r,i)=>{
+      let dateStr='—';
+      try{ dateStr=r.createdAt.toDate().toLocaleString('en-IN',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}); }catch{}
+      const days = (r.days||'—').replace('All 3 Days (Apr 25, 26 & 27)','All 3 Days');
+      return `<tr>
+        <td><strong style="color:#94A3B8">${i+1}</strong></td>
+        <td><strong>${r.childFirst||''} ${r.childLast||''}</strong></td>
+        <td>${r.age||'—'}</td>
+        <td><span class="badge ${r.gender==='Boy'?'b-boy':'b-girl'}">${r.gender||'—'}</span></td>
+        <td>${r.parentName||'—'}</td>
+        <td><a href="tel:${r.phone}" style="color:var(--navy);font-weight:700;text-decoration:none">${r.phone||'—'}</a></td>
+        <td>${r.address||'—'}</td>
+        <td><span class="badge b-days">${days}</span></td>
+        <td style="font-size:0.76rem;color:#94A3B8">${dateStr}</td>
+        <td>${isAdmin ? `<button class="del-btn" onclick="deleteReg('${r.id}')">🗑 Del</button>` : ''}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  window.setFilter = (f, btn) => {
+    activeFilter = f;
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  };
+  window.filterTable = applyFilters;
+
+  function applyFilters(){
+    const q = (document.getElementById('searchBox')?.value||'').toLowerCase();
+    let d = [...allData];
+    if(activeFilter==='Boy')  d = d.filter(r=>r.gender==='Boy');
+    else if(activeFilter==='Girl') d = d.filter(r=>r.gender==='Girl');
+    else if(['25','26','27'].includes(activeFilter)) d = d.filter(r=>(r.days||'').includes(activeFilter));
+    if(q) d = d.filter(r=>[r.childFirst,r.childLast,r.phone,r.parentName,r.address].join(' ').toLowerCase().includes(q));
+    renderRows(d);
+  }
+
+  window.deleteReg = async (id) => {
+    if(currentRole !== 'admin'){ alert('You do not have permission to delete records.'); return; }
+    if(!confirm('Delete this registration? This cannot be undone.')) return;
+    try{
+      await deleteDoc(doc(db,'registrations',id));
+      allData = allData.filter(r=>r.id!==id);
+      refreshStats(); applyFilters();
+    }catch{ alert('Error deleting. Please try again.'); }
+  };
+
+  window.exportCSV = () => {
+    if(currentRole !== 'admin'){ alert('Only admins can export data.'); return; }
+    if(!allData.length){ alert('No registrations to export yet.'); return; }
+    const hdr = ['#','Child Name','Age','Gender','Parent','Phone','Email','Address','Church','Days','Special Needs','Registered On'];
+    const rows = allData.map((r,i)=>{
+      let d=''; try{ d=r.createdAt.toDate().toLocaleString(); }catch{}
+      return [i+1,`${r.childFirst||''} ${r.childLast||''}`,r.age,r.gender,r.parentName,r.phone,r.email,r.address,r.church,r.days,r.special,d]
+        .map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(',');
+    });
+    const blob = new Blob([[hdr.join(','),...rows].join('\n')],{type:'text/csv'});
+    Object.assign(document.createElement('a'),{href:URL.createObjectURL(blob),download:`VBS_Registrations_${new Date().toISOString().slice(0,10)}.csv`}).click();
+  };
+
+  /* ── Registration Submit ── */
+  window.submitRegistration = async () => {
+    const cf = document.getElementById('childFirst').value.trim();
+    const cl = document.getElementById('childLast').value.trim();
+    const age= document.getElementById('childAge').value;
+    const pn = document.getElementById('parentName').value.trim();
+    const ph = document.getElementById('parentPhone').value.trim();
+    if(!cf||!cl||!age||!pn||!ph){ alert('Please fill all required fields (*)'); return; }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled=true; btn.textContent='⏳ Submitting…';
+    document.getElementById('successMsg').style.display='none';
+    document.getElementById('errorMsg').style.display='none';
+
+    try{
+      await addDoc(collection(db,'registrations'),{
+        childFirst:cf, childLast:cl, age,
+        gender:  document.getElementById('childGender').value,
+        parentName:pn, phone:ph,
+        email:   document.getElementById('parentEmail').value.trim(),
+        address: document.getElementById('address').value.trim(),
+        church:  document.getElementById('church').value.trim(),
+        days:    document.getElementById('days').value,
+        special: document.getElementById('special').value.trim(),
+        createdAt: serverTimestamp()
+      });
+      document.getElementById('regChildName').textContent = `${cf} ${cl}`;
+      document.getElementById('successMsg').style.display='block';
+      document.getElementById('successMsg').scrollIntoView({behavior:'smooth',block:'center'});
+      ['childFirst','childLast','parentName','parentPhone','parentEmail','address','church','special'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('childAge').value='';
+      document.getElementById('childGender').value='';
+      btn.textContent='✅ Registered!';
+      setTimeout(()=>{ btn.disabled=false; btn.textContent='🙏 Complete Registration'; },4000);
+    }catch(e){
+      document.getElementById('errorMsg').style.display='block';
+      btn.disabled=false; btn.textContent='🙏 Complete Registration';
+    }
+  };
+
+  /* ── Countdown (fixed to April 25 2025 IST 09:00) ── */
+  // Target: 2025-04-25 09:00:00 IST = UTC+5:30
+  const VBS_START = new Date('2025-04-25T03:30:00Z'); // 09:00 IST in UTC
+  const VBS_END   = new Date('2025-04-27T08:00:00Z'); // end of day 3
+
+  function tick(){
+    const now  = new Date();
+    const diff = VBS_START - now;
+
+    if(now >= VBS_START && now <= VBS_END){
+      // VBS is live!
+      document.getElementById('countdownGrid').style.display = 'none';
+      document.getElementById('vbsLive').style.display = 'flex';
+      return;
+    }
+
+    if(now > VBS_END){
+      // VBS is over
+      document.getElementById('cnt-days').textContent  = '0';
+      document.getElementById('cnt-hours').textContent = '00';
+      document.getElementById('cnt-mins').textContent  = '00';
+      document.getElementById('cnt-secs').textContent  = '🙏';
+      return;
+    }
+
+    // Counting down
+    document.getElementById('cnt-days').textContent  = Math.floor(diff / 86400000);
+    document.getElementById('cnt-hours').textContent = String(Math.floor(diff % 86400000 / 3600000)).padStart(2,'0');
+    document.getElementById('cnt-mins').textContent  = String(Math.floor(diff % 3600000  / 60000)).padStart(2,'0');
+    document.getElementById('cnt-secs').textContent  = String(Math.floor(diff % 60000    / 1000)).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth',block:'start'});
+  }));
 </script>
-
-</script>
-
-
-
 </body>
 </html>
